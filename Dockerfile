@@ -2,6 +2,8 @@ FROM openjdk:8-jdk-alpine
 
 MAINTAINER Yannic Wilkening
 
+RUN apk add libstdc++
+
 COPY AllplayBridge.jar /usr
 COPY liballjoyn_java.so /usr/lib
 WORKDIR /usr
