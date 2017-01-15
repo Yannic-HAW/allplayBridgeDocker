@@ -1,13 +1,14 @@
-FROM openjdk:8-jdk-alpine
+FROM ubuntu:16.04
 
 MAINTAINER Yannic Wilkening
 
-RUN apk add --update alpine-sdk
+RUN apt-get update && apt-get install -y \
+  default-jre \
+  default-jdk \
+  build-essential
 
 COPY AllplayBridge.jar /usr
-COPY liballjoyn_java.so ./usr/lib/
-
-RUN chmod 777 ./usr/lib/liballjoyn_java.so
+COPY liballjoyn_java.so /usr/lib/
 
 WORKDIR /usr
 CMD ["java", "-jar", "AllplayBridge.jar"]
