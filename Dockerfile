@@ -4,8 +4,7 @@ MAINTAINER Yannic Wilkening
 
 RUN apt-get update && apt-get install -y \
   default-jre \
-  default-jdk \
-  build-essential
+  libc++
 
 COPY AllplayBridge.jar /usr
 COPY liballjoyn_java.so /usr/lib/
